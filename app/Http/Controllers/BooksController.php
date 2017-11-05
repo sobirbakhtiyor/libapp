@@ -22,7 +22,7 @@ class BooksController extends Controller
     {
         $books = Book::paginate(10);
 
-        return view('books.index', compact('books'));
+        return view('admin.books.index', compact('books'));
     }
 
     /**
@@ -33,7 +33,7 @@ class BooksController extends Controller
     public function create()
     {
 
-      return view('books.create');  
+      return view('admin.books.create');  
     }
 
     /**
@@ -73,7 +73,7 @@ class BooksController extends Controller
         
         $user->books()->create($input);
 
-        return redirect('/books');
+        return redirect('admin/books');
     }
 
     /**

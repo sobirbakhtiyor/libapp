@@ -1,6 +1,4 @@
-
-	<div >
-
+<div class="container">
 	{!! Form::open(['method'=>'GET','action'=>'HomeController@search','class'=>'navbar-form navbar-left','role'=>'search'])  !!}
 	 
 	<div class="input-group custom-search-form">
@@ -12,3 +10,4 @@
 	    </span>
 	</div>
 	{!! Form::close() !!}
+</div>

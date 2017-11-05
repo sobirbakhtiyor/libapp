@@ -15,10 +15,12 @@ Route::get('/', function () {
     return view('welcome');
 })->middleware('auth');
 
+Route::get('includes/search', [
+	'as'=>'search', 'uses'=>'HomeController@search'
+]);
+
 
 Route::auth();
-
-
 
 Route::group(['middleware'=>'admin'], function(){
 
@@ -32,8 +34,10 @@ Route::group(['middleware'=>'admin'], function(){
 	
 	Route::resource('admin/categories', 'AdminCategoriesController');
 
-	Route::resource('books', 'BooksController');
-
+	Route::resource('admin/books', 'BooksController');
+	Route::get('/adminresults', function () {
+		return view('admin.adminresults');
+	});
 
 });
 

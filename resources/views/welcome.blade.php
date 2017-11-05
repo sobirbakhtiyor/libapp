@@ -8,7 +8,7 @@
                 <div class="panel-heading">Welcome</div>
 
                 <div class="panel-body">
-                   development testing
+                  
                 </div>
             </div>
         </div>

@@ -66,12 +66,16 @@
                 <ul class="nav" id="side-menu">
                     <li class="sidebar-search">
                         <div class="input-group custom-search-form">
-                            <input type="text" class="form-control" placeholder="Search...">
+                            {!! Form::open(['method'=>'GET','action'=>'HomeController@search','class'=>'navbar-form navbar-left','role'=>'search'])  !!}
+                            <div class="input-group custom-search-form">
+                                <input type="text" class="form-control" name="search" placeholder="Search...">
                                 <span class="input-group-btn">
-                                <button class="btn btn-default" type="button">
-                                    <i class="fa fa-search"></i>
-                                </button>
-                            </span>
+                                    <button class="btn btn-default-sm" type="submit">
+                                        <i class="fa fa-search"> </i>
+                                    </button>
+                                </span>
+                            </div>
+                            {!! Form::close() !!}
                         </div>
                         <!-- /input-group -->
                     </li>
@@ -94,10 +98,10 @@
                         <a href="#"><i class="fa fa-wrench fa-fw"></i> Books<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="{{route('books.index')}}">All Books</a>
+                                <a href="{{route('admin.books.index')}}">All Books</a>
                             </li>
                             <li>
-                                <a href="{{route('books.create')}}">Add Book</a>
+                                <a href="{{route('admin.books.create')}}">Add Book</a>
                             </li>
                         </ul>
                         <!-- /.nav-second-level -->
