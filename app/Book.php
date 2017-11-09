@@ -34,4 +34,14 @@ class Book extends Model
 		return $this->belongsTo('App\Ebook');
 		
 	}
+	 public function book_user()
+    {
+        return $this->belongsToMany('App\User', 'book_user');
+    }
+    // public function getIsLikedAttribute()
+    // {
+    //     $like = $this->book_user()->whereUserId(Auth::id())->first();
+    //     return (!is_null($like)) ? true : false;
+    // }
+
 }

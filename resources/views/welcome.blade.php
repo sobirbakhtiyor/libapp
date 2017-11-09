@@ -27,6 +27,7 @@
                         <td>{{$book->book_author}}</td>
                         <td>{{$book->book_name}}</td>
                         <td>{{$book->book_published_at}}</td>
+                        <td><a href="{{route('book.like', $book->id)}}"><button type="button" class="btn btn-secondary btn-sm">Like</button></a></td>
                     </tr>
 
                 @endforeach

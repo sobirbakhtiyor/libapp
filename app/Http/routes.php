@@ -10,6 +10,7 @@
 | and give it the controller to call when that URI is requested.
 |
 */
+Route::auth();
 
 Route::get('/', 'HomeController@index')->name('home')->middleware('auth');
 
@@ -17,8 +18,7 @@ Route::get('includes/search', [
 	'as'=>'search', 'uses'=>'HomeController@search'
 ]);
 
-
-Route::auth();
+Route::get('book/like/{id}', ['as' => 'book.like', 'uses' => 'OrderBooksController@like']);
 
 Route::group(['middleware'=>'admin'], function(){
 
