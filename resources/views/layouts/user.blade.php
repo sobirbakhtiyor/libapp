@@ -97,7 +97,7 @@
 
 </div>
 <!-- /#wrapper -->
-<footer class="navbar-fixed-bottom panel-footer">
+<footer class="panel-footer">
         <div class="container">
             <div class="row">
                 <h4 align="center">© Sarvar</h4>
@@ -111,6 +111,7 @@
         return confirm("Do you want to delete this item?");
     });
 </script>
+
 </body>
 
 </html>

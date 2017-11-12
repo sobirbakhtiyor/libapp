@@ -20,22 +20,22 @@ class OrderBooksController extends Controller
    //      return redirect()->back();
    //  }
 
-	public function like($book)
+	public function order($book)
     {
-        $existing_like = Like::withTrashed()->whereBookId($book)->whereUserId(Auth::id())->first();
+        $existing_order = Like::withTrashed()->whereBookId($book)->whereUserId(Auth::id())->first();
 
-        if (is_null($existing_like)) {
+        if (is_null($existing_order)) {
             Like::create([
                 'user_id'   => Auth::id(),
                 'book_id'   => $book
             ]);
         } else {
-            if (is_null($existing_like->deleted_at)) {
-                $existing_like->delete();
+            if (is_null($existing_order->deleted_at)) {
+                $existing_order->delete();
             } else {
-                $existing_like->restore();
+                $existing_order->restore();
             }
         }
-        return response()->json();
+        return redirect()->back();
     }
 }

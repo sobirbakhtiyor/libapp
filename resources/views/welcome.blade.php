@@ -8,13 +8,14 @@
         <h1>Books</h1>
         
         
-            <table class="table table-striped">
+            <table class="table table-bordered">
                 <thead>
                     <tr>
                     <th>Book Id</th>
                     <th>Book Author</th>
                     <th>Book Name</th>
                     <th>Published date</th>
+                    <th></th>
                         
                     </tr>
                 </thead>
@@ -27,7 +28,7 @@
                         <td>{{$book->book_author}}</td>
                         <td>{{$book->book_name}}</td>
                         <td>{{$book->book_published_at}}</td>
-                        <td><a href="{{route('book.like', $book->id)}}"><button type="button" class="btn btn-secondary btn-sm">Like</button></a></td>
+                        <td><a href="{{route('book.order', $book->id)}}"><button type="button" class=" btn btn-primary btn-sm">Order</button></a></td>
                     </tr>
 
                 @endforeach

@@ -21,10 +21,17 @@
 		{!! Form::label('email', 'Email')!!}
 		{!! Form::email('email', null, ['class'=>'form-control'])!!}
 	</div>
+	@if(Auth::user()->role_id==1)
 	<div class="form-group">
 		{!! Form::label('role_id', 'Role')!!}
-		{!! Form::select('role_id',$roles, null, ['class'=>'form-control'])!!}
+		{!! Form::select('role_id', [2=>'editor', 3=>'user'], NULL, ['class'=>'form-control'])!!}
 	</div>
+	@else
+	<div class="form-group">
+		{!! Form::label('role_id', 'Role')!!}
+		{!! Form::select('role_id',array(3=>'user'), null, ['class'=>'form-control'])!!}
+	</div>
+	@endif
 	<div class="form-group">
 		{!! Form::label('photo_id', 'Photo')!!}
 		{!! Form::file('photo_id', null, ['class'=>'form-control'])!!}

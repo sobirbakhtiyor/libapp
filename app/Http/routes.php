@@ -18,7 +18,7 @@ Route::get('includes/search', [
 	'as'=>'search', 'uses'=>'HomeController@search'
 ]);
 
-Route::get('book/like/{id}', ['as' => 'book.like', 'uses' => 'OrderBooksController@like']);
+Route::get('book/order/{id}', ['as' => 'book.order', 'uses' => 'OrderBooksController@order']);
 
 Route::group(['middleware'=>'admin'], function(){
 
