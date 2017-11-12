@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Admin</title>
+    <title>Kitob</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="{{asset('css/app.css')}}" rel="stylesheet">
@@ -59,10 +59,10 @@
             <div class="sidebar-nav navbar-collapse">
                 <ul class="nav" id="side-menu">
                     <li>
-                        <a href=""><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                        <a href="{{route('home')}}"><i class="fa fa-book fa-fw"></i> Books</a>
                     </li>
                     <li>
-                        <a href="#"><i class="fa fa-wrench fa-fw"></i> Users<span class=""></span></a>
+                        <a href="{{route('book.ordered')}}"><i class="fa fa-wrench fa-fw"></i> Ordered Books<span class=""></span></a>
                     </li>
                     <li>
                         <a href="#"><i class="fa fa-wrench fa-fw"></i> Books<span class=""></span></a>
@@ -97,7 +97,7 @@
 
 </div>
 <!-- /#wrapper -->
-<footer class="panel-footer">
+<footer class="navbar-fixed-bottom panel-footer">
         <div class="container">
             <div class="row">
                 <h4 align="center">© Sarvar</h4>

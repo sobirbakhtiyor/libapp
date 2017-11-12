@@ -14,11 +14,10 @@ Route::auth();
 
 Route::get('/', 'HomeController@index')->name('home')->middleware('auth');
 
-Route::get('includes/search', [
-	'as'=>'search', 'uses'=>'HomeController@search'
-]);
+Route::get('includes/search', ['as'=>'search', 'uses'=>'HomeController@search']);
 
 Route::get('book/order/{id}', ['as' => 'book.order', 'uses' => 'OrderBooksController@order']);
+Route::get('book/ordered', ['as' => 'book.ordered', 'uses' => 'OrderBooksController@orderedBooks']);
 
 Route::group(['middleware'=>'admin'], function(){
 
