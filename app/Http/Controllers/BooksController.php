@@ -9,6 +9,7 @@ use App\Book;
 use App\Photo;
 use App\Ebook;
 use App\Http\Requests;
+use App\Like;
 use App\Http\Requests\BooksCreateRequest;
 
 class BooksController extends Controller
@@ -119,5 +120,14 @@ class BooksController extends Controller
     public function destroy($id)
     {
         //
+    }
+     public function orderedBooks()
+    {
+
+        $orders = Like::all();
+        $books = Book::all();
+
+        return view('admin.ordered', compact('orders','books'));
+
     }
 }

@@ -62,7 +62,7 @@
                         <a href="{{route('home')}}"><i class="fa fa-book fa-fw"></i> Books</a>
                     </li>
                     <li>
-                        <a href="{{route('book.ordered')}}"><i class="fa fa-wrench fa-fw"></i> Ordered Books<span class=""></span></a>
+                        <a href="{{route('book.ordering')}}"><i class="fa fa-wrench fa-fw"></i> Ordered Books<span class=""></span></a>
                     </li>
                     <li>
                         <a href="#"><i class="fa fa-wrench fa-fw"></i> Books<span class=""></span></a>

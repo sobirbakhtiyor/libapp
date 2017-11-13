@@ -28,7 +28,12 @@
                         <td><img height="50" width="50" src="{{$book->photo ? $book->photo->file : 'http://placehold.it/400x400'}}" alt=""></td>
                         <td>{{$book->book_author}}</td>
                         <td>{{$book->book_name}}</td>
-                        <td>{{$book->book_published_at}}</td>
+                        <td>{{$book->book_published_at}}</td>                    
+                    @if (($orders)->isEmpty())
+                        <td><a href="{{route('book.order', $book->id)}}"><button type="button" class=" btn btn-primary">Order</button></a></td>
+                    @else
+                        <td><a href="{{route('book.order', $book->id)}}"><button type="button" class=" btn btn-primary">UnOrder</button></a></td>
+                    @endif 
                     </tr>
                 @endif 
                 @endforeach

@@ -23,7 +23,7 @@
 
                     <tr>
                         <td>{{$book->book_id}}</td>
-                        <td><img height="50" src="{{$book->photo ? $book->photo->file : 'http://placehold.it/400x400'}}" alt=""></td>
+                        <td><img height="50" width="50" src="{{$book->photo ? $book->photo->file : 'http://placehold.it/400x400'}}" alt=""></td>
                         <td>{{$book->book_author}}</td>
                         <td>{{$book->book_name}}</td>
                         <td>{{$book->book_published_at}}</td>

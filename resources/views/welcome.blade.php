@@ -31,7 +31,7 @@
                         <td>{{$book->book_author}}</td>
                         <td>{{$book->book_name}}</td>
                         <td>{{$book->book_published_at}}</td>
-                        <td><a href="{{route('book.order', $book->id)}}"><button type="button" class=" btn btn-primary btn-sm">Order</button></a></td>
+                        <td><a href="{{route('book.view', $book->id)}}"><button type="button" class=" btn btn-primary btn-sm">View</button></a></td>
                     </tr>
 
                 @endforeach

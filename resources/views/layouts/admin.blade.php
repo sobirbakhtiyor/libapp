@@ -103,6 +103,9 @@
                             <li>
                                 <a href="{{route('admin.books.create')}}">Add Book</a>
                             </li>
+                            <li>
+                                <a href="{{route('admin.ordered')}}">Ordered Books</a>
+                            </li>
                         </ul>
                         <!-- /.nav-second-level -->
                     </li>

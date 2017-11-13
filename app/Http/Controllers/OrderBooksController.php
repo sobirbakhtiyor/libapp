@@ -14,7 +14,9 @@ class OrderBooksController extends Controller
 {
     public function viewBook($id) {
         $book = Book::findOrFail($id);
-        return view('users.viewbook', compact('book'));
+        $book_id = $book->id;
+        $order = Like::whereUserId(Auth::id())->whereBookId($book_id)->get();
+        return view('users.viewbook', compact('book', 'order'));
     }
 
 	public function order($id)
@@ -34,13 +36,12 @@ class OrderBooksController extends Controller
         }
         return redirect()->back();
     }
-    public function orderedBooks(){
-
+    public function orderingBooks()
+    {
         $orders = Like::all();
         $books = Book::all();
 
         return view('users.ordered', compact('orders','books'));
-
     }
-
+    
 }
