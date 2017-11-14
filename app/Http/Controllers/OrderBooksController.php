@@ -21,11 +21,12 @@ class OrderBooksController extends Controller
 
 	public function order($id)
     {
-      $existing_order = Like::withTrashed()->whereBookId($id)->whereUserId(Auth::id())->first();
+        $existing_order = Like::withTrashed()->whereBookId($id)->whereUserId(Auth::id())->first();
         if (is_null($existing_order)) {
             Like::create([
                 'user_id'   => Auth::id(),
-                'book_id'   => $id
+                'user_name' => Auth::user()->name,
+                'book_id'   => $id,
             ]);
         } else {
             if (is_null($existing_order->deleted_at)) {
@@ -36,12 +37,29 @@ class OrderBooksController extends Controller
         }
         return redirect()->back();
     }
+
     public function orderingBooks()
     {
         $orders = Like::all();
         $books = Book::all();
-
         return view('users.ordered', compact('orders','books'));
     }
-    
+
+    public function orderedBooks()
+    {
+        $orders = Like::all();
+        $books = Book::all();
+
+        return view('admin.ordered', compact('orders','books'));
+    }
+
+    public function confirmOrder()
+    {
+
+    }
+
+    public function cancelOrder()
+    {
+        
+    }
 }

@@ -121,13 +121,5 @@ class BooksController extends Controller
     {
         //
     }
-     public function orderedBooks()
-    {
-
-        $orders = Like::all();
-        $books = Book::all();
-
-        return view('admin.ordered', compact('orders','books'));
-
-    }
+     
 }

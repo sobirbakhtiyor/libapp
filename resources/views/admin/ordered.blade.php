@@ -15,7 +15,8 @@
                         <th>Book Cover</th>
                         <th>Book Author</th>                          
                         <th>Book Name</th>                          
-	                    <th>Book published date</th>	                        
+                        <th>Book published date</th>                            
+	                    <th>User Name</th>	                        
                     </tr>
                 </thead>
                 <tbody>
@@ -29,6 +30,9 @@
                         <td>{{$book->book_author}}</td>
                         <td>{{$book->book_name}}</td>
                         <td>{{$book->book_published_at}}</td>
+                        <td>{{$order->user_name}}</td>
+                        <td><a href="#"><button type="button" class=" btn btn-primary btn-sm">Confirm</button></a></td>
+                        <td><a href="#"><button type="button" class=" btn btn-danger btn-sm">Cancel</button></a></td>
                     </tr>
                 @endif 
                 @endforeach

@@ -14,8 +14,9 @@ class CreateBookUserTable extends Migration
     {
         Schema::create('book_user', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('user_name');
             $table->integer('user_id');
-            $table->integer('book_id');;
+            $table->integer('book_id');
             $table->softDeletes();
             $table->timestamps();
         });
