@@ -14,10 +14,10 @@
     		<ul>{{$book->book_author}}</ul>
     		<ul>{{$book->book_name}}</ul>
     		<ul>{{$book->book_published_at}}</ul>
-            @if (($order)->isEmpty())
-    			<td><a href="{{route('book.order', $book->id)}}"><button type="button" class=" btn btn-primary">Order</button></a></td>
+            @if ($order->isEmpty())
+    			<td><a href="{{route('book.order', $book->id)}}"><button type="button" class=" btn btn-primary">Buyurtma berish</button></a></td>
     		@else
-    			<td><a href="{{route('book.order', $book->id)}}"><button type="button" class=" btn btn-primary">UnOrder</button></a></td>
+    			<td><a href="{{route('book.order', $book->id)}}"><button type="button" class=" btn btn-primary">Buyurtmani bekor qilish</button></a></td>
     		@endif    			
     	</div>
 	</div>

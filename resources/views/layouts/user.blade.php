@@ -30,7 +30,7 @@
     <!-- Navigation -->
     <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin: 0;">
         <div class="navbar-header">
-            <a class="navbar-brand" href="{{route('home')}}">Home</a>
+            <a class="navbar-brand" href="{{route('home')}}"><img src="images/bookslogo.png" style="width:20%" ></a>
         </div>
         <!-- /.navbar-header -->
 
@@ -46,7 +46,7 @@
                     <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
                     </li>
                     <li class="divider"></li>
-                    <li><a href="{{ url('/logout') }}"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                    <li><a href="{{ url('/logout') }}"><i class="fa fa-sign-out fa-fw"></i> Chiqish</a>
                     </li>
                 </ul>
                 <!-- /.dropdown-user -->
@@ -59,10 +59,10 @@
             <div class="sidebar-nav navbar-collapse">
                 <ul class="nav" id="side-menu">
                     <li>
-                        <a href="{{route('home')}}"><i class="fa fa-book fa-fw"></i> Books</a>
+                        <a href="{{route('home')}}"><i class="fa fa-book fa-fw"></i> Kitoblar</a>
                     </li>
                     <li>
-                        <a href="{{route('book.ordering')}}"><i class="fa fa-wrench fa-fw"></i> Ordered Books<span class=""></span></a>
+                        <a href="{{route('book.ordering')}}"><i class="fa fa-wrench fa-fw"></i> Buyurtmalar <span class=""></span></a>
                     </li>
                     <li>
                         <a href="#"><i class="fa fa-wrench fa-fw"></i> Books<span class=""></span></a>
@@ -97,13 +97,11 @@
 
 </div>
 <!-- /#wrapper -->
-<footer class="navbar-fixed-bottom panel-footer">
-        <div class="container">
-            <div class="row">
-                <h4 align="center">© Sarvar</h4>
-            </div>
-        </div> 
-</footer>
+    
+<!--    footer-->
+@include('layouts/footer')
+<!--    end footer-->
+    
 <!-- jQuery -->
 <script src="{{asset('js/libs.js')}}"></script>
 <script>

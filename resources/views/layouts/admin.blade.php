@@ -158,13 +158,11 @@
 
 </div>
 <!-- /#wrapper -->
-<footer class="navbar-fixed-bottom panel-footer">
-        <div class="container">
-            <div class="row">
-                <h4 align="center">© Sarvar</h4>
-            </div>
-        </div> 
-</footer>
+    
+<!--    footer-->
+@include('layouts/footer')
+<!--    end footer-->
+
 <!-- jQuery -->
 <script src="{{asset('js/libs.js')}}"></script>
 <script>

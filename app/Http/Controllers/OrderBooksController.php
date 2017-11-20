@@ -40,9 +40,9 @@ class OrderBooksController extends Controller
 
     public function orderingBooks()
     {
-        $orders = Like::all();
+        $myorders = Like::whereUserId(Auth::id())->get();
         $books = Book::all();
-        return view('users.ordered', compact('orders','books'));
+        return view('users.ordered', compact('books', 'myorders'));
     }
 
     public function orderedBooks()
