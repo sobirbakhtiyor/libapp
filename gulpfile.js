@@ -1,5 +1,4 @@
 var elixir = require('laravel-elixir');
-
 /*
  |--------------------------------------------------------------------------
  | Elixir Asset Management
@@ -16,7 +15,7 @@ elixir(function(mix) {
 
     .styles([
 
-    	'style.css',
+    	'styles.css',
     	'blog-post.css',
     	'bootstrap.css',
     	'font-awesome.css',
