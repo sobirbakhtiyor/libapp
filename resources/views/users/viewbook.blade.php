@@ -17,7 +17,8 @@
             @if ($order->isEmpty())
     			<td><a href="{{route('book.order', $book->id)}}"><button type="button" class=" btn btn-primary">Buyurtma berish</button></a></td>
     		@else
-    			<td><a href="{{route('book.order', $book->id)}}"><button type="button" class=" btn btn-primary">Buyurtmani bekor qilish</button></a></td>
+    			<td><button type="button" class="btn btn-outline-success">Bu kitobga buyurtma bergansiz</button></td>
+            <td><a href="{{route('book.order', $book->id)}}"><button type="button" class="btn btn-danger">Buyurtmani bekor qilish</button></a></td>
     		@endif    			
     	</div>
 	</div>

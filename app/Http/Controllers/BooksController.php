@@ -11,6 +11,8 @@ use App\Ebook;
 use App\Http\Requests;
 use App\Like;
 use App\Http\Requests\BooksCreateRequest;
+use App\Category;
+use App\Language;
 
 class BooksController extends Controller
 {
@@ -33,8 +35,10 @@ class BooksController extends Controller
      */
     public function create()
     {
-
-      return view('admin.books.create');  
+        $categories = Category::lists('name', 'id')->all();
+        $languages = Language::lists('name', 'id')->all();
+        return view('admin.books.create', compact('categories','languages'));  
+        //return $languages;
     }
 
     /**

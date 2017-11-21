@@ -16,6 +16,7 @@ elixir(function(mix) {
 
     .styles([
 
+    	'style.css',
     	'blog-post.css',
     	'bootstrap.css',
     	'font-awesome.css',
