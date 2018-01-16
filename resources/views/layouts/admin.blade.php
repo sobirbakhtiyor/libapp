@@ -15,10 +15,26 @@
     <link href="{{asset('css/app.css')}}" rel="stylesheet">
     <link href="{{asset('css/libs.css')}}" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Lora">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700">
+    
+
     <style type="text/css">
+        
         body {
-            font-family: 'Lora', serif;
+            background: url("{{asset('images/bg-pattern.png')}}"),linear-gradient(to left,#f3f9fe,#f3f9fe);
+            font-family: 'Poppins';
             font-size: 18px;
+            color:#107896;
+        }
+        #page-wrapper {
+           background: none
+
+        }
+        .navbar-fixed-bottom {
+            position: relative;
+        }
+        .form-control {
+            
         }
     </style>
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
