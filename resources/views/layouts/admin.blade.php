@@ -21,7 +21,9 @@
     <style type="text/css">
         
         body {
-            background: url("{{asset('images/bg-pattern.png')}}"),linear-gradient(to left,#f3f9fe,#f3f9fe);
+            background: url("{{asset('images/sphere.png')}}");
+            background-repeat: repeat;
+            background-position: left bottom;
             font-family: 'Poppins';
             font-size: 18px;
             color:#107896;
@@ -32,9 +34,47 @@
         }
         .navbar-fixed-bottom {
             position: relative;
+            bottom: 0px;
         }
-        .form-control {
-            
+        .overlay {
+            background: url("{{asset('images/driver.png')}}") no-repeat;
+            width: 936px;
+            height: 212px;
+            position:relative;
+            bottom: -300px;
+            right: 0;
+            z-index: 0;
+            -webkit-animation: driver 12s 2s infinite linear;
+             -ms-animation: driver 12s 2s infinite linear;
+            -moz-animation: driver 12s 2s infinite linear;
+            -o-animation: driver 12s 2s infinite linear;
+            animation: driver 12s 2s infinite linear;
+        }
+
+        @keyframes driver {
+            0%, 100% {
+                bottom: -100%;
+            }
+            50% {
+                bottom: 50%;
+            }
+        }
+
+        .sphere img {
+            position: relative;
+            right: 0;
+            margin-top: -212px;
+            z-index: 0;
+        }
+        .sphere {
+            position: relative;
+            float:right;
+            width: 574px;
+            height: 300px;
+            margin-top: -300px;
+            overflow: hidden;
+            background-color: #d8d8d8;
+}
         }
     </style>
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -178,10 +218,14 @@
 
     </div>
     <!-- /#page-wrapper -->
+    <div class="sphere">
+        <div class="overlay"></div>
+        <img src="{{asset('images/sphere.png')}}">
+    </div>
 
 </div>
 <!-- /#wrapper -->
-    
+
 <!--    footer-->
 @include('layouts/footer')
 <!--    end footer-->
