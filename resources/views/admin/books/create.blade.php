@@ -125,8 +125,8 @@ input[type=checkbox] + label {
 
 
                     <div class="text-center"><h1 class="page-header">Yangi kitob qo'shish</h1></div>
-
-	<div class="row">
+     <div class="container">
+	<div class="row justify-content-md-center">
 
 		{!! Form::open(['method'=>'POST', 'action'=>'BooksController@store', 'files'=>true])!!}
 		 {{ csrf_field() }}
@@ -134,8 +134,7 @@ input[type=checkbox] + label {
 			{!! Form::label('category_id', 'Category')!!}
 			{!! Form::select('category_id', [''=>'Choose category']+$categories, null, ['class'=>'form-control'])!!}
 		</div> --}}
-        <div class="row">
-		<div class="form-group col-lg-6">
+		<div class="form-group col-lg-12">
 			{!! Form::label('book_author', 'Muallif*')!!}
 			{!! Form::text('book_author', null, ['class'=>'form-control', 'autofocus', 'required', 'oninvalid'=>'this.setCustomValidity("Muallifni kiriting")', 'onchange'=>'setCustomValidity("")'])!!}
             <small id="passwordHelpBlock" class="form-text text-muted">
@@ -143,32 +142,16 @@ input[type=checkbox] + label {
 </small>
 		</div>
         
-		<div class="form-group col-md-6">
+		<div class="form-group col-md-12">
 			{!! Form::label('title', 'Sarlavha')!!}
 			{!! Form::text('title', null, ['class'=>'form-control'])!!}
 		</div>
-        
-        </div>
         
 		<div class="form-group col-md-3">
 			{!! Form::label('editor', 'Muharrir')!!}
 			{!! Form::text('editor', null, ['class'=>'form-control'])!!}
 		</div>
 
-		<div class="input-group mb-3">
-  <div class="input-group-prepend">
-    <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</button>
-    <div class="dropdown-menu">
-      <a class="dropdown-item" href="#">Action</a>
-      <a class="dropdown-item" href="#">Another action</a>
-      <a class="dropdown-item" href="#">Something else here</a>
-      <div role="separator" class="dropdown-divider"></div>
-      <a class="dropdown-item" href="#">Separated link</a>
-    </div>
-  </div>
-  <input type="text" class="form-control" aria-label="Text input with dropdown button">
-</div>
-</div>   
         
 		<div class="form-group col-md-3">
 			{!! Form::label('book_id', 'Inventar raqami')!!}
@@ -243,15 +226,24 @@ input[type=checkbox] + label {
 			{!! Form::file('cover', null, ['class'=>'form-control custom-file-input', 'accept'=>"image"])!!}
 		</div><br>
 
-		<div class="form-group">
-			<input id="notorderable" type="checkbox" name="notorderable" value="">
-			<label for="notorderable">Faqat ARMda foydalanish mumkin</label>
-		</div><br>
+    
+    <div class="form-group col-md-12">
+      <input id="notorderable" type="checkbox" name="notorderable" value="">
+      <label for="notorderable">Faqat ARMda foydalanish mumkin</label>
+    </div>
 
-		<div class="form-group">
+		<div class="form-group col-md-12">
+			<input id="only_eversion" type="checkbox" name="only_eversion" value="">
+			<label for="only_eversion">Faqat elektron shakli mavjud</label>
+		</div>
+
+		<div class="form-group col-md-12">
 			<input id="newbook" type="checkbox" name="newbook" value="">
 			<label for="newbook">Yangi adabiyot</label>
 		</div>
+
+	</div> 
+</div>
 		
         <br><br><hr><br>
         <div class="form-group col-md-12">
