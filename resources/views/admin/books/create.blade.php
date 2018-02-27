@@ -128,18 +128,21 @@ input[type=checkbox] + label {
      <div class="container">
 	<div class="row justify-content-md-center">
 
-		{!! Form::open(['method'=>'POST', 'action'=>'BooksController@store', 'files'=>true])!!}
+		{!! Form::open(['method'=>'POST', 'action'=>'BooksController@store', 'files'=>true, 'onsubmit'=>"return gettag();"])!!}
 		 {{ csrf_field() }}
-		{{-- <div class="form-group col-md-12">
-			{!! Form::label('category_id', 'Category')!!}
-			{!! Form::select('category_id', [''=>'Choose category']+$categories, null, ['class'=>'form-control'])!!}
-		</div> --}}
+
+
+                		{{-- <div class="form-group col-md-12">
+                			{!! Form::label('category_id', 'Category')!!}
+                			{!! Form::select('category_id', [''=>'Choose category']+$categories, null, ['class'=>'form-control'])!!}
+                		</div> --}}
+
 		<div class="form-group col-lg-12">
-			{!! Form::label('book_author', 'Muallif*')!!}
-			{!! Form::text('book_author', null, ['class'=>'form-control', 'autofocus', 'required', 'oninvalid'=>'this.setCustomValidity("Muallifni kiriting")', 'onchange'=>'setCustomValidity("")'])!!}
+			{!! Form::label('author', 'Muallif*')!!}
+			{!! Form::text('author', null, ['class'=>'form-control', 'autofocus', 'required', 'oninvalid'=>'this.setCustomValidity("Muallifni kiriting")', 'onchange'=>'setCustomValidity("")'])!!}
             <small id="passwordHelpBlock" class="form-text text-muted">
-  Ism, otasining ismi, familiya to'g'ri ketma-ketlikda va to'liq kiritilsin.
-</small>
+            Ism, otasining ismi, familiya to'g'ri ketma-ketlikda va to'liq kiritilsin.
+            </small>
 		</div>
         
 		<div class="form-group col-md-12">
@@ -154,8 +157,8 @@ input[type=checkbox] + label {
 
         
 		<div class="form-group col-md-3">
-			{!! Form::label('book_id', 'Inventar raqami')!!}
-			{!! Form::text('book_id', null, ['class'=>'form-control', 'required' => 'required', 'oninvalid'=>'this.setCustomValidity("Inventar raqamini kiriting")', 'onchange'=>'setCustomValidity("")'])!!}
+			{!! Form::label('inv_number', 'Inventar raqami')!!}
+			{!! Form::text('inv_number', null, ['class'=>'form-control', 'required' => 'required', 'oninvalid'=>'this.setCustomValidity("Inventar raqamini kiriting")', 'onchange'=>'setCustomValidity("")'])!!}
 		</div>
         
         <div class="form-group col-md-3">
@@ -179,13 +182,13 @@ input[type=checkbox] + label {
 		</div>
         
 		<div class="form-group col-md-3">
-			{!! Form::label('publisher_city', 'Shahar')!!}
-			{!! Form::text('publisher_city', null, ['class'=>'form-control'])!!}
+			{!! Form::label('published_city', 'Shahar')!!}
+			{!! Form::text('published_city', null, ['class'=>'form-control'])!!}
 		</div>
         
 		<div class="form-group col-md-3">
-			{!! Form::label('publisher_country', 'Davlat')!!}
-			{!! Form::text('publisher_country', null, ['class'=>'form-control'])!!}
+			{!! Form::label('published_country', 'Davlat')!!}
+			{!! Form::text('published_country', null, ['class'=>'form-control'])!!}
 		</div>
         
 		<div class="form-group col-md-4">
@@ -207,7 +210,8 @@ input[type=checkbox] + label {
 			<div id="app">			
 				{!! Form::label('tag', 'Kalit so\'z')!!}
 				{!! Form::text('tag', null, ['class'=>'form-control'])!!}
-				 <div class="tagHere"></div>
+				 <div id="tagHere" class="tagHere"></div>
+         <input id="tags" type="hidden" name="tags" value="">
 			</div>
 		</div>
         
@@ -228,17 +232,17 @@ input[type=checkbox] + label {
 
     
     <div class="form-group col-md-12">
-      <input id="notorderable" type="checkbox" name="notorderable" value="">
+      <input id="notorderable" type="checkbox" name="notorderable" value="1">
       <label for="notorderable">Faqat ARMda foydalanish mumkin</label>
     </div>
 
 		<div class="form-group col-md-12">
-			<input id="only_eversion" type="checkbox" name="only_eversion" value="">
-			<label for="only_eversion">Faqat elektron shakli mavjud</label>
+			<input id="only_pdf" type="checkbox" name="only_pdf" value="1">
+			<label for="only_pdf">Faqat elektron shakli mavjud</label>
 		</div>
 
 		<div class="form-group col-md-12">
-			<input id="newbook" type="checkbox" name="newbook" value="">
+			<input id="newbook" type="checkbox" name="newbook" value="1">
 			<label for="newbook">Yangi adabiyot</label>
 		</div>
 
@@ -261,6 +265,17 @@ input[type=checkbox] + label {
 	<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
 
 	<script type="text/javascript">
+
+
+
+
+    function gettag() {
+      var $booktag = document.getElementById('tagHere');
+      var $booktags = $booktag.textContent;
+      document.getElementById('tags').value = $booktags;
+    }
+
+
 		$(document).ready(function(){
   var $input = $("#app input"),
       $appendHere = $(".tagHere"),
@@ -290,7 +305,7 @@ input[type=checkbox] + label {
   function addTag(element) {
     var $tag = $("<div />"), $a = $("<a href='#' />"), $span = $("<span />");
     $tag.addClass('tag');
-    $('<i class="fa fa-times" aria-hidden="true"> &nbsp; </i>').appendTo($a);
+    $('<i class="fa fa-times" aria-hidden="true">--</i>').appendTo($a);
     $span.text($(element).val());
     $a.bind('click', function(){
       $(this).parent().remove();

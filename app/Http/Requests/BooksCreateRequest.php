@@ -23,13 +23,6 @@ class BooksCreateRequest extends Request
      */
     public function rules()
     {
-        return [
-            'book_id'           => 'required',
-            'book_author'       => 'required',
-            'book_name'         => 'required',
-            'book_published_at' => 'required',
-            'photo_id'          => 'required',
-            'ebook_id'          => 'required',
-        ];
+        return true; 
     }
 }
