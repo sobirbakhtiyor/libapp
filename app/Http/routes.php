@@ -13,6 +13,7 @@
 Route::auth();
 
 	Route::get('/', 'HomeController@index')->name('home')->middleware('auth');
+	Route::get('/', 'HomeController@index')->name('home')->middleware('auth');
 
 	Route::get('includes/search', ['as'=>'search', 'uses'=>'HomeController@search']);
 
@@ -44,4 +45,7 @@ Route::auth();
 
 });
 
+Route::get('/test', function (){
+		return view('test');
+	});
 
