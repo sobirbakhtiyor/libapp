@@ -14,10 +14,9 @@
  * limitations under the License.
  */
 
-
+@import url("https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700");
 html, body {
-  font-family: 'Roboto', 'Helvetica', sans-serif;
-
+  font-family: 'Poppins','Roboto', 'Helvetica', sans-serif;
 }
 .demo-avatar {
   width: 48px;

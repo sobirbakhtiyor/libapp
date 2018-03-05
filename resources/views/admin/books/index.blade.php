@@ -11,11 +11,11 @@
             <table class="table table-striped">
                 <thead>
                     <tr>
-                    <th>Book Id</th>
+                    <th>Number</th>
                     <th>Book cover</th>
                     <th>Book Author</th>
-                    <th>Book Name</th>
-                    <th>Published date</th>
+                    <th>Book Title</th>
+                    <th>Published city</th>
                         
                     </tr>
                 </thead>
@@ -24,11 +24,11 @@
                 @foreach($books as $book)
 
                     <tr>
-                        <td>{{$book->book_id}}</td>
+                        <td>{{$book->inv_number}}</td>
                         <td><img height="50" width="50" src="{{$book->photo ? $book->photo->file : 'http://placehold.it/400x400'}}" alt=""></td>
-                        <td>{{$book->book_author}}</td>
-                        <td>{{$book->book_name}}</td>
-                        <td>{{$book->book_published_at}}</td>
+                        <td>{{$book->author}}</td>
+                        <td>{{$book->title}}</td>
+                        <td>{{$book->published_city}}</td>
                     </tr>
 
                 @endforeach

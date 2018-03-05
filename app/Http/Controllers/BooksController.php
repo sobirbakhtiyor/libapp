@@ -51,36 +51,36 @@ class BooksController extends Controller
     {
         $input = $request->all();
 
-        return $input;
+        $user = Auth::user();
+        $input['cataloger'] = $user->name;
 
-        // $user = Auth::user();
 
-        // if($file = $request->file('photo_id')){
+        if($file = $request->file('cover')){
 
-        //     $name = time() . $file->getClientOriginalName();
+            $name = time() . $file->getClientOriginalName();
 
-        //     $file->move('images', $name);
+            $file->move('images', $name);
 
-        //     $photo = Photo::create(['file'=>$name]);
+            $photo = Photo::create(['file'=>$name]);
 
-        //     $input['photo_id'] = $photo->id;
+            $input['cover'] = $photo->id;
 
-        // }
-        // if($file = $request->file('ebook_id')){
+        }
+        if($file = $request->file('ebook')){
 
-        //     $name = time() . $file->getClientOriginalName();
+            $name = $request['title'];
 
-        //     $file->move('ebooks', $name);
+            $file->move('ebooks', $name);
 
-        //     $ebook = Ebook::create(['file'=>$name]);
+            $ebook = Ebook::create(['file'=>$name]);
 
-        //     $input['ebook_id'] = $ebook->id;
+            $input['ebook'] = $ebook->id;
 
-        // }
+        }
         
-        // $user->books()->create($input);
+        $user->books()->create($input);
 
-        // return redirect('admin/books');
+        return redirect('admin/books');
     }
 
     /**

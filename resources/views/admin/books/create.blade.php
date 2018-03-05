@@ -125,19 +125,19 @@ input[type=checkbox] + label {
 
 
                     <div class="text-center"><h1 class="page-header">Yangi kitob qo'shish</h1></div>
-     <div class="container">
+     <div class="container col-md-9">
 	<div class="row justify-content-md-center">
 
 		{!! Form::open(['method'=>'POST', 'action'=>'BooksController@store', 'files'=>true, 'onsubmit'=>"return gettag();"])!!}
 		 {{ csrf_field() }}
 
 
-                		{{-- <div class="form-group col-md-12">
+                		{{-- <div class="form-group col-md-9">
                 			{!! Form::label('category_id', 'Category')!!}
                 			{!! Form::select('category_id', [''=>'Choose category']+$categories, null, ['class'=>'form-control'])!!}
                 		</div> --}}
 
-		<div class="form-group col-lg-12">
+		<div class="form-group col-md-12">
 			{!! Form::label('author', 'Muallif*')!!}
 			{!! Form::text('author', null, ['class'=>'form-control', 'autofocus', 'required', 'oninvalid'=>'this.setCustomValidity("Muallifni kiriting")', 'onchange'=>'setCustomValidity("")'])!!}
             <small id="passwordHelpBlock" class="form-text text-muted">
@@ -150,43 +150,43 @@ input[type=checkbox] + label {
 			{!! Form::text('title', null, ['class'=>'form-control'])!!}
 		</div>
         
-		<div class="form-group col-md-3">
+		<div class="form-group col-md-12">
 			{!! Form::label('editor', 'Muharrir')!!}
 			{!! Form::text('editor', null, ['class'=>'form-control'])!!}
 		</div>
 
         
-		<div class="form-group col-md-3">
+		<div class="form-group col-md-4">
 			{!! Form::label('inv_number', 'Inventar raqami')!!}
 			{!! Form::text('inv_number', null, ['class'=>'form-control', 'required' => 'required', 'oninvalid'=>'this.setCustomValidity("Inventar raqamini kiriting")', 'onchange'=>'setCustomValidity("")'])!!}
 		</div>
         
-        <div class="form-group col-md-3">
+        <div class="form-group col-md-4">
 			{!! Form::label('lang_id', 'Til')!!}
 			{!! Form::select('lang_id', [''=>'Tilni tanlang']+$languages, null, ['class'=>'form-control'])!!}
 		</div>
         
-		<div class="form-group col-md-3">
+		<div class="form-group col-md-4">
 			{!! Form::label('volume', 'Sahifalar soni')!!}
 			{!! Form::number('volume', null, ['class'=>'form-control', 'maxlength'=>"4"])!!}
 		</div>
         
-		<div class="form-group col-md-3">
+		<div class="form-group col-md-6">
 			{!! Form::label('publish_year', 'Nashr yili')!!}
 			{!! Form::number('publish_year', null, ['class'=>'form-control', 'maxlength'=>"4"])!!}
 		</div>
         
-		<div class="form-group col-md-3">
+		<div class="form-group col-md-6">
 			{!! Form::label('publisher', 'Nashriyot nomi')!!}
 			{!! Form::text('publisher', null, ['class'=>'form-control'])!!}
 		</div>
         
-		<div class="form-group col-md-3">
+		<div class="form-group col-md-6">
 			{!! Form::label('published_city', 'Shahar')!!}
 			{!! Form::text('published_city', null, ['class'=>'form-control'])!!}
 		</div>
         
-		<div class="form-group col-md-3">
+		<div class="form-group col-md-6">
 			{!! Form::label('published_country', 'Davlat')!!}
 			{!! Form::text('published_country', null, ['class'=>'form-control'])!!}
 		</div>
@@ -206,7 +206,7 @@ input[type=checkbox] + label {
 			{!! Form::text('udk', null, ['class'=>'form-control'])!!}
 		</div>
         
-		<div class="form-group col-md-6">
+		<div class="form-group col-md-12">
 			<div id="app">			
 				{!! Form::label('tag', 'Kalit so\'z')!!}
 				{!! Form::text('tag', null, ['class'=>'form-control'])!!}
@@ -215,12 +215,12 @@ input[type=checkbox] + label {
 			</div>
 		</div>
         
-		<div class="form-group col-md-6">
+		<div class="form-group col-md-12">
 			{!! Form::label('description', 'Annotatsiya')!!}
 			{!! Form::textarea('description', null, ['class'=>'form-control', 'required', 'oninvalid'=>'this.setCustomValidity("Annotatsiya yozing!")', 'onchange'=>'setCustomValidity("")'])!!}
 		</div>
         
-		<div class="custom-file">
+		<div class="form-group custom-file">
 			{!! Form::label('ebook', 'Elektron shakli (.pdf)')!!}
 			{!! Form::file('ebook', null, ['class'=>'custom-file-input', 'accept'=>'application/pdf'])!!}
 		</div><br>
@@ -231,17 +231,17 @@ input[type=checkbox] + label {
 		</div><br>
 
     
-    <div class="form-group col-md-12">
+    <div class="form-group col-md-9">
       <input id="notorderable" type="checkbox" name="notorderable" value="1">
       <label for="notorderable">Faqat ARMda foydalanish mumkin</label>
     </div>
 
-		<div class="form-group col-md-12">
+		<div class="form-group col-md-9">
 			<input id="only_pdf" type="checkbox" name="only_pdf" value="1">
 			<label for="only_pdf">Faqat elektron shakli mavjud</label>
 		</div>
 
-		<div class="form-group col-md-12">
+		<div class="form-group col-md-9">
 			<input id="newbook" type="checkbox" name="newbook" value="1">
 			<label for="newbook">Yangi adabiyot</label>
 		</div>
@@ -249,7 +249,7 @@ input[type=checkbox] + label {
 	</div> 
 </div>
 		
-        <br><br><hr><br>
+        <br><br><hr class="col-md-12"><br>
         <div class="form-group col-md-12">
 			{!! Form::submit('Saqlash', ['class'=>'btn btn-primary'])!!}
 		</div>
@@ -305,7 +305,7 @@ input[type=checkbox] + label {
   function addTag(element) {
     var $tag = $("<div />"), $a = $("<a href='#' />"), $span = $("<span />");
     $tag.addClass('tag');
-    $('<i class="fa fa-times" aria-hidden="true">--</i>').appendTo($a);
+    $('<i class="fa fa-times" aria-hidden="true">\x0d</i>').appendTo($a);
     $span.text($(element).val());
     $a.bind('click', function(){
       $(this).parent().remove();

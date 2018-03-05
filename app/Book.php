@@ -9,14 +9,30 @@ class Book extends Model
 {
 	protected $fillable = [
 
-		'book_id',
-		'book_author',
-		'book_name',
-		'book_published_at',
-		'photo_id',
-		'category_id',
-		'ebook_id',
-		'ordered_id'
+			'cataloger',
+
+            'author',
+            'editor',
+            'inv_number',
+            'lang_id',
+            'volume',
+            'publish_year',
+            'publisher',
+            'published_city',
+            'published_country',
+            'isbn',
+            'bbk',
+            'udk',
+            'tags',
+            'description',
+            'ebook',
+            'cover',
+            'notorderable',
+            'only_pdf',
+            'newbook',
+
+            'user_id',
+            'ordered_id',
 	];
 
  	public function user(){

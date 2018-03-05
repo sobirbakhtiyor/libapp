@@ -14,10 +14,10 @@ class CreateBooksTable extends Migration
     {
         Schema::create('books', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('cataloger');
+            $table->string('cataloger')->unsigned()->index();
 
-            $table->string('author', 150)->index();
-            $table->string('title', 200)->index();
+            $table->string('author', 150)->unsigned()->index();
+            $table->string('title', 200)->unsigned()->index();
             $table->string('editor')->nullable();
             $table->integer('inv_number')->nullable();
             $table->integer('lang_id')->nullable();
@@ -37,7 +37,6 @@ class CreateBooksTable extends Migration
             $table->tinyInteger('only_pdf')->default(0);
             $table->tinyInteger('newbook')->default(0);
 
-            $table->integer('user_id')->nullable();
             $table->tinyInteger('ordered_id')->nullable();
             $table->timestamps();
         });
