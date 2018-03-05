@@ -47,38 +47,40 @@ class BooksController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(BooksCreateRequest $request)
+    public function store(Request $request)
     {
         $input = $request->all();
 
-        $user = Auth::user();
+        return $input;
 
-        if($file = $request->file('photo_id')){
+        // $user = Auth::user();
 
-            $name = time() . $file->getClientOriginalName();
+        // if($file = $request->file('photo_id')){
 
-            $file->move('images', $name);
+        //     $name = time() . $file->getClientOriginalName();
 
-            $photo = Photo::create(['file'=>$name]);
+        //     $file->move('images', $name);
 
-            $input['photo_id'] = $photo->id;
+        //     $photo = Photo::create(['file'=>$name]);
 
-        }
-        if($file = $request->file('ebook_id')){
+        //     $input['photo_id'] = $photo->id;
 
-            $name = time() . $file->getClientOriginalName();
+        // }
+        // if($file = $request->file('ebook_id')){
 
-            $file->move('ebooks', $name);
+        //     $name = time() . $file->getClientOriginalName();
 
-            $ebook = Ebook::create(['file'=>$name]);
+        //     $file->move('ebooks', $name);
 
-            $input['ebook_id'] = $ebook->id;
+        //     $ebook = Ebook::create(['file'=>$name]);
 
-        }
+        //     $input['ebook_id'] = $ebook->id;
+
+        // }
         
-        $user->books()->create($input);
+        // $user->books()->create($input);
 
-        return redirect('admin/books');
+        // return redirect('admin/books');
     }
 
     /**
