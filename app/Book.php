@@ -12,6 +12,7 @@ class Book extends Model
 			'cataloger',
 
             'author',
+            'title',
             'editor',
             'inv_number',
             'lang_id',
@@ -25,12 +26,13 @@ class Book extends Model
             'udk',
             'tags',
             'description',
-            'ebook',
-            'cover',
+            'ebook_id',
+            'cover_id',
             'notorderable',
             'only_pdf',
             'newbook',
 
+            'location',
             'user_id',
             'ordered_id',
 	];

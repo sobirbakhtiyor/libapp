@@ -55,26 +55,26 @@ class BooksController extends Controller
         $input['cataloger'] = $user->name;
 
 
-        if($file = $request->file('cover')){
+        if($file = $request->file('cover_id')){
 
-            $name = time() . $file->getClientOriginalName();
+            $name = time() . $file->getClientOriginalExtension();
 
             $file->move('images', $name);
 
             $photo = Photo::create(['file'=>$name]);
 
-            $input['cover'] = $photo->id;
+            $input['cover_id'] = $photo->id;
 
         }
-        if($file = $request->file('ebook')){
+        if($file = $request->file('ebook_id')){
 
-            $name = $request['title'];
+            $name = $request['author'] .' - '. $request['title'] . '.pdf';
 
             $file->move('ebooks', $name);
 
             $ebook = Ebook::create(['file'=>$name]);
 
-            $input['ebook'] = $ebook->id;
+            $input['ebook_id'] = $ebook->id;
 
         }
         
@@ -102,7 +102,12 @@ class BooksController extends Controller
      */
     public function edit($id)
     {
-        //
+        $book = Book::findOrFail($id);
+
+        $categories = Category::lists('name', 'id')->all();
+        $languages = Language::lists('name', 'id')->all();
+
+        return view('admin.books.edit', compact('book', 'categories', 'languages'));
     }
 
     /**
@@ -114,7 +119,40 @@ class BooksController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $book = Book::findOrFail($id);
+
+        $input = $request->except('_method', '_token', 'tag');
+
+        $user = Auth::user();
+        $input['cataloger'] = $user->name;
+
+
+        if($file = $request->file('cover_id')){
+
+            $name = time() .'.'. $file->getClientOriginalExtension();
+
+            $file->move('images', $name);
+
+            $photo = Photo::create(['file'=>$name]);
+
+            $input['cover_id'] = $photo->id;
+
+        }
+        if($file = $request->file('ebook_id')){
+
+            $name = $request['author'] .' - '. $request['title'] . '.pdf';
+
+            $file->move('ebooks', $name);
+
+            $ebook = Ebook::create(['file'=>$name]);
+
+            $input['ebook_id'] = $ebook->id;
+
+        }
+        
+        $user->books()->update($input);
+
+        return redirect('admin/books');
     }
 
     /**

@@ -221,13 +221,13 @@ input[type=checkbox] + label {
 		</div>
         
 		<div class="form-group custom-file">
-			{!! Form::label('ebook', 'Elektron shakli (.pdf)')!!}
-			{!! Form::file('ebook', null, ['class'=>'custom-file-input', 'accept'=>'application/pdf'])!!}
+			{!! Form::label('ebook_id', 'Elektron shakli (.pdf)')!!}
+			{!! Form::file('ebook_id', null, ['class'=>'custom-file-input', 'accept'=>'application/pdf'])!!}
 		</div><br>
         
         <div class="form-group custom-file">
-			{!! Form::label('cover', 'Muqova (.jpg/.png)')!!}
-			{!! Form::file('cover', null, ['class'=>'form-control custom-file-input', 'accept'=>"image"])!!}
+			{!! Form::label('cover_id', 'Muqova (.jpg/.png)')!!}
+			{!! Form::file('cover_id', null, ['class'=>'form-control custom-file-input', 'accept'=>"image"])!!}
 		</div><br>
 
     
